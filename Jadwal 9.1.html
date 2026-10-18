@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Pelajaran 9.1</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #10172f, #244c91, #8054d9);
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  padding: 25px 20px;
+  position: relative;
+  text-align: center;
+  border-radius: 24px;
+  border: 1px solid #ffffff40;
+  background: #ffffff18;
+  box-shadow: 0 12px 35px #0004;
+  backdrop-filter: blur(12px);
+}
+
+.credit {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  font-size: 10px;
+  opacity: 0.65;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.logo {
+  font-size: 55px;
+  margin: 15px 0;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 11px;
+  border: none;
+  border-radius: 13px;
+  background: white;
+  color: #24458c;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:hover {
+  background: #dce7ff;
+}
+
+.finish {
+  color: #493300;
+  background: #ffd166;
+}
+
+.back {
+  color: white;
+  background: #ffffff20;
+  border: 1px solid #ffffff70;
+}
+
+table {
+  width: 100%;
+  margin-top: 18px;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #101a3c50;
+}
+
+th, td {
+  border: 1px solid #ffffff35;
+  padding: 11px 8px;
+  font-size: 13px;
+  text-align: left;
+}
+
+th {
+  background: #ffffff25;
+}
+
+th:first-child,
+td:first-child {
+  text-align: center;
+  width: 38px;
+}
+
+.small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.quote {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="credit">by 3v4n</div>
+
+  <!-- HALAMAN AWAL -->
+  <section id="home" class="page active">
+    <div class="logo">🎓</div>
+    <h1>JADWAL PELAJARAN</h1>
+    <h2>KELAS 9.1</h2>
+    <p>Selamat datang di jadwal pelajaran kelas 9.1!</p>
+    <p class="small">
+      Siapkan dirimu untuk belajar dan meraih cita-cita.
+    </p>
+    <button onclick="showPage('days')">🚀 LET'S GO!</button>
+  </section>
+
+  <!-- PILIH HARI -->
+  <section id="days" class="page">
+    <div class="logo">📚</div>
+    <h1>PILIH HARI</h1>
+    <p>Pilih hari untuk melihat jadwal pelajaranmu.</p>
+
+    <button onclick="showSchedule('Senin')">📅 SENIN</button>
+    <button onclick="showSchedule('Selasa')">📅 SELASA</button>
+    <button onclick="showSchedule('Rabu')">📅 RABU</button>
+    <button onclick="showSchedule('Kamis')">📅 KAMIS</button>
+    <button onclick="showSchedule('Jumat')">📅 JUM'AT</button>
+
+    <button class="back" onclick="showPage('home')">
+      ⬅ KEMBALI
+    </button>
+  </section>
+
+  <!-- JADWAL DAN NAMA GURU -->
+  <section id="schedule" class="page">
+    <div class="logo">📝</div>
+    <h1 id="dayTitle">JADWAL PELAJARAN</h1>
+    <p class="small">Kelas 9.1 • Semangat belajar! 🔥</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Mata Pelajaran</th>
+          <th>Nama Guru</th>
+        </tr>
+      </thead>
+      <tbody id="scheduleList"></tbody>
+    </table>
+
+    <button class="back" onclick="showPage('days')">
+      ⬅ PILIH HARI LAIN
+    </button>
+
+    <button class="finish" onclick="showPage('motivation')">
+      ✅ SELESAI
+    </button>
+  </section>
+
+  <!-- HALAMAN AKHIR -->
+  <section id="motivation" class="page">
+    <div class="logo">🏆</div>
+    <h1>MANTAP, KELAS 9.1!</h1>
+    <h2>Pesan buat kamu ❤️</h2>
+
+    <p class="quote">
+      "Masa depanmu ditentukan oleh usaha yang kamu lakukan hari ini."
+    </p>
+
+    <p>
+      Jangan malas belajar, hormati guru, hargai teman,
+      dan jangan takut gagal. Nilai boleh belum sempurna,
+      tapi semangat untuk menjadi lebih baik jangan pernah hilang!
+    </p>
+
+    <p class="quote">
+      Tetap semangat sekolah! Buktikan kalau kamu bisa
+      meraih cita-citamu. 💪🔥
+    </p>
+
+    <h2>9.1 PASTI BISA! 🚀</h2>
+
+    <button onclick="showPage('home')">
+      🏠 KEMBALI KE AWAL
+    </button>
+  </section>
+
+</div>
+
+<script>
+const teacherMap = {
+  "Bahasa Indonesia": "Iroh",
+  "Fikih": "piing",
+  "Matematika": "Piing",
+  "BTQ": "Bu Ijah",
+  "Bahasa Arab": "Tiah",
+  "SKI": "Kosasih",
+  "PJOK": "Gajun Asmara",
+  "IPS": "Arif",
+  "IPA": "Juju",
+  "Akidah": "Usman",
+  "Akidah Akhlak": "Pak Usman",
+  "Informatika": "Ropei",
+  "Prakarya": "Roni",
+  "BK": "Sari",
+  "Bahasa Inggris": "Vera",
+  "PKN": "Imoy",
+  "Qurdis": "Agus Salam",
+ 
+};
+
+const schedules = {
+  "Senin": [
+    "PJOK",
+    "Bahasa Indonesia",
+    "Fikih",
+    "Bahasa Inggris",
+    "Prakarya",
+    "Informatika"
+  ],
+  "Selasa": [
+    "Matematika",
+    "BTQ",
+    "Fikih",
+    "IPA",
+    "Akidah"
+  ],
+  "Rabu": [
+    "IPS",
+    "SKI",
+    "Bahasa Inggris",
+    "PKN",
+    "Bahasa Arab"
+  ],
+  "Kamis": [
+    "IPA",
+    "IPS",
+    "Matematika",
+    "Bahasa Indonesia",
+    "Bahasa Arab"
+  ],
+  "Jumat": [
+    "Bahasa Indonesia",
+    "BK",
+    "Qurdis"
+  ]
+};
+
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById(pageId).classList.add("active");
+}
+
+function getTeacher(subject) {
+  if (teacherMap[subject]) return teacherMap[subject];
+
+  if (subject === "Bahasa Inggris") return "Belum diisi";
+  if (subject === "Prakarya") return "Belum diisi";
+  if (subject === "PKN") return "Belum diisi";
+  if (subject === "Qurdis") return "Belum diisi";
+
+  return "Belum diisi";
+}
+
+function showSchedule(day) {
+  const displayDay = day === "Jumat" ? "JUM'AT" : day.toUpperCase();
+
+  document.getElementById("dayTitle").textContent =
+    "JADWAL " + displayDay;
+
+  const list = document.getElementById("scheduleList");
+  list.innerHTML = "";
+
+  schedules[day].forEach((subject, index) => {
+    const row = document.createElement("tr");
+
+    [index + 1, subject, getTeacher(subject)].forEach(value => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    list.appendChild(row);
+  });
+
+  showPage("schedule");
+}
+</script>
+</body>
+</html>
